@@ -28,14 +28,3 @@ jobs:
           CHAT_ID: ${{ secrets.CHAT_ID }}
         run: |
           python main.py
-
-      - name: Commit last.json
-        run: |
-          git config --global user.name "github-actions"
-          git config --global user.email "github-actions@github.com"
-
-          git add last.json || true
-
-          git diff --cached --quiet || git commit -m "Update last post"
-
-          git push
